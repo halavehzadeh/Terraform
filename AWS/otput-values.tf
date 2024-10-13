@@ -9,3 +9,9 @@ resource "aws_eip" "lb" {
 output "public-ip" {
     value = aws_eip.lb.public_ip
 }
+
+#if you want to see all attribute in screen
+
+output "public-ip" {
+    value = aws_eip.lb
+}
