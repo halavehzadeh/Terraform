@@ -7,6 +7,6 @@ resource "aws_instance" "myec2" {
   #here you can define how many instacne you want to create 
   count = 2
   tags = {
-    Name = "Payment-system"
+    Name = "Payment-system${count_index}"
   }
 }
