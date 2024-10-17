@@ -7,6 +7,23 @@ resource "aws_instance" "myec2" {
   #here you can define how many instacne you want to create 
   count = 2
   tags = {
-    Name = "Payment-system${count_index}"
+    Name = "Payment-system-${count_index}"
   }
 }
+
+
+resource "aws_iam_user" "test" {
+  name = "prod-user-${count.index}"
+  count = 3
+  }
+
+
+variable "users" {
+  type        = list
+  default     = ["alice", "bob", "johnc"]
+}
+
+  resource "aws_iam_user" "test" {
+  name = var.users[count.index]
+  count = 3
+  }
