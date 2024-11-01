@@ -14,3 +14,7 @@ This guide provides a step-by-step process for creating an IAM user in AWS using
    ```bash
    git clone https://github.com/yourusername/your-repository.git
    cd your-repository
+
+Set up Terraform Configuration File:
+
+Create a file named main.tf and add the following code. This code defines an IAM user in AWS, generates an access key, and attaches a specified policy.
