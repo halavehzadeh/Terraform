@@ -15,6 +15,49 @@ This guide provides a step-by-step process for creating an IAM user in AWS using
    git clone https://github.com/yourusername/your-repository.git
    cd your-repository
 
-Set up Terraform Configuration File:
+2. Set up Terraform Configuration File:
 
 Create a file named main.tf and add the following code. This code defines an IAM user in AWS, generates an access key, and attaches a specified policy.
+
+# Configure the AWS Provider
+provider "aws" {
+  region = "us-east-1"
+}
+
+# Define variables
+variable "user_name" {
+  description = "Name of the IAM user to create"
+  type        = string
+}
+
+variable "policy_arn" {
+  description = "ARN of the policy to attach to the user"
+  type        = string
+  default     = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
+}
+
+# Create an IAM user
+resource "aws_iam_user" "user" {
+  name = var.user_name
+}
+
+# Create an access key for the user
+resource "aws_iam_access_key" "user_key" {
+  user = aws_iam_user.user.name
+}
+
+# Attach a policy to the user
+resource "aws_iam_user_policy_attachment" "user_policy" {
+  user       = aws_iam_user.user.name
+  policy_arn = var.policy_arn
+}
+
+# Output the access key and secret key
+output "access_key" {
+  value = aws_iam_access_key.user_key.id
+}
+
+output "secret_key" {
+  value     = aws_iam_access_key.user_key.secret
+  sensitive = true
+}
