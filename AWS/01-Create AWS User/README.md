@@ -21,9 +21,9 @@ Create a file named main.tf and add the following code. This code defines an IAM
 
 2. **Configure the AWS Provider**
     ```bash
-provider "aws" {
-  region = "us-east-1"
-}
+    provider "aws" {
+       region = "us-east-1"
+      }
 
 # Define variables
 variable "user_name" {
