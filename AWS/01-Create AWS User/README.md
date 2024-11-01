@@ -26,19 +26,14 @@ Create a file named main.tf and add the following code. This code defines an IAM
       }
 
 4. **Define variables**
-   ```bashe
+   ```bash
       variable "user_name" {
       description = "Name of the IAM user to create"
       type        = string
    }
 
-variable "policy_arn" {
-  description = "ARN of the policy to attach to the user"
-  type        = string
-  default     = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
-}
-
-# Create an IAM user
+5. **Create an IAM user**
+```bash
 resource "aws_iam_user" "user" {
   name = var.user_name
 }
