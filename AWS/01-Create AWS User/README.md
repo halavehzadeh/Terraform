@@ -19,7 +19,8 @@ This guide provides a step-by-step process for creating an IAM user in AWS using
 
 Create a file named main.tf and add the following code. This code defines an IAM user in AWS, generates an access key, and attaches a specified policy.
 
-# Configure the AWS Provider
+2. **Configure the AWS Provider**
+    ```bash
 provider "aws" {
   region = "us-east-1"
 }
