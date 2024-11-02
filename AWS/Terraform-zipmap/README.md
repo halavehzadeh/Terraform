@@ -7,6 +7,7 @@ Functionality:
 It takes two arguments: keys and values
 Both arguments should be lists of the same length
 It returns a map where each key-value pair is created from corresponding elements of the input lists
+
 Example usage:
 
 ```bashe
@@ -20,6 +21,7 @@ locals {
 output "person_map" {
   value = local.person_map
 }
+```
 
 This will output:
 
@@ -29,7 +31,7 @@ This will output:
   "Bob": 25,
   "Charlie": 35
 }
-
+```
 Use cases:
 Creating maps from lists of related data
 Simplifying nested configurations
