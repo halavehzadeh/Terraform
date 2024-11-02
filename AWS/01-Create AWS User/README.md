@@ -19,42 +19,33 @@ This guide provides a step-by-step process for creating an IAM user in AWS using
 
 Create a file named main.tf and add the following code. This code defines an IAM user in AWS, generates an access key, and attaches a specified policy.
 
-3. **Configure the AWS Provider**
+
     ```bash
+    #Configure the AWS Provider
     provider "aws" {
        region = "us-east-1"
       }
 
-4. **Define variables**
-   ```bash
-      variable "user_name" {
-      description = "Name of the IAM user to create"
-      type        = string
+     # Create an IAM user
+   resource "aws_iam_user" "user" {
+   name = var.user_name
    }
+    ```
 
-5. **Create an IAM user**
-```bash
-resource "aws_iam_user" "user" {
-  name = var.user_name
-}
+3. **Initialize Terraform:** 
+   Run the following command to initialize your Terraform workspace and download necessary providers:
 
-# Create an access key for the user
-resource "aws_iam_access_key" "user_key" {
-  user = aws_iam_user.user.name
-}
+   ```bash
 
-# Attach a policy to the user
-resource "aws_iam_user_policy_attachment" "user_policy" {
-  user       = aws_iam_user.user.name
-  policy_arn = var.policy_arn
-}
+    terraform init
 
-# Output the access key and secret key
-output "access_key" {
-  value = aws_iam_access_key.user_key.id
-}
+4. **Apply the configuration**
+   Run the following command to create the user. You will be prompted to provide the user_name variable value:
+   ```bash
+   terraform apply
 
-output "secret_key" {
-  value     = aws_iam_access_key.user_key.secret
-  sensitive = true
-}
+   After reviewing the plan, type yes to create the user.
+
+5. **View the Output:** 
+   After Terraform completes, it will display the access key and secret key for the new user. Make sure to store the secret key securely, as it won't be retrievable after this.
+
