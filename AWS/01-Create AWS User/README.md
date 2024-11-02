@@ -7,6 +7,7 @@ This guide provides a step-by-step process for creating an IAM user in AWS using
 1. **Terraform**: Make sure Terraform is installed on your system. You can download it from [Terraform's official website](https://www.terraform.io/downloads).
 2. **AWS CLI**: Ensure the AWS CLI is configured with appropriate permissions to create IAM users. Check the [AWS CLI installation guide](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) for setup instructions.
 3. **AWS Account**: You need an AWS account with permissions to create IAM users and assign policies.
+4. for more inforamtion about creating user with terraform refer to [AWS CLI Resource](https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user)
 
 ## Usage
 
