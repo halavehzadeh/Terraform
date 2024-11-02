@@ -1,4 +1,4 @@
-*What is Terraform zipmap?*
+***What is Terraform zipmap?***
 
 The zipmap function in Terraform is a built-in function that creates a map from two lists. Here's an explanation of how it works:
 
