@@ -1,14 +1,15 @@
-What is Terraform zipmap?
+*What is Terraform zipmap?*
+
 The zipmap function in Terraform is a built-in function that creates a map from two lists. Here's an explanation of how it works:
 
-Syntax: zipmap(keys, values)
+**Syntax**: zipmap(keys, values)
 Purpose: Combines two lists into a map, pairing corresponding elements from each list.
 Functionality:
 It takes two arguments: keys and values
 Both arguments should be lists of the same length
 It returns a map where each key-value pair is created from corresponding elements of the input lists
 
-Example usage:
+***Example usage:***
 
 ```bashe
 locals {
