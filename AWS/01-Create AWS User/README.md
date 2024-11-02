@@ -43,9 +43,8 @@ Create a file named main.tf and add the following code. This code defines an IAM
    Run the following command to create the user. You will be prompted to provide the user_name variable value:
    ```bash
    terraform apply
-
+   ```
    After reviewing the plan, type yes to create the user.
-
 5. **View the Output:** 
    After Terraform completes, it will display the access key and secret key for the new user. Make sure to store the secret key securely, as it won't be retrievable after this.
 
