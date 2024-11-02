@@ -21,16 +21,16 @@ Create a file named main.tf and add the following code. This code defines an IAM
 
 
     ```bash
+
     #Configure the AWS Provider
     provider "aws" {
        region = "us-east-1"
       }
 
      # Create an IAM user
-   resource "aws_iam_user" "user" {
-   name = var.user_name
-   }
-    ```
+    resource "aws_iam_user" "user" {
+     name = var.user_name
+    }
 
 3. **Initialize Terraform:** 
    Run the following command to initialize your Terraform workspace and download necessary providers:
@@ -42,7 +42,7 @@ Create a file named main.tf and add the following code. This code defines an IAM
 4. **Apply the configuration**
    Run the following command to create the user. You will be prompted to provide the user_name variable value:
    ```bash
-   terraform apply
+    terraform apply
    ```
    After reviewing the plan, type yes to create the user.
 5. **View the Output:** 
