@@ -35,12 +35,12 @@ Create a file named main.tf and add the following code. This code defines an IAM
 
    ```bash
 
-    terraform init
+terraform init
 
 4. **Apply the configuration**
    Run the following command to create the user. You will be prompted to provide the user_name variable value:
    ```bash
-    terraform apply
+terraform apply
    ```
    After reviewing the plan, type yes to create the user.
 5. **View the Output:** 
