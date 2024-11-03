@@ -1,5 +1,5 @@
 
-# how to create multiple resources using "for_each"
+# How to create multiple resources using "for_each"
 
 To understand better what purpose for_each serves, let’s see how you could achieve the same outcome in Terraform without using for_each.
 
