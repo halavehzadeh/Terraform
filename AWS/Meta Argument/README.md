@@ -7,12 +7,10 @@ A meta-argument in Terraform is a special argument that controls how resources a
 we can control- to some extent - the lifecycle further than the three above stages for our resources. Terraform gives us the following options that we can use in the lifecycle meta-argument:
 
 **create_before_destroy**
- — when an in-place update has to occur Terraform will create the new instance prior to destroying the old
-**prevent_destroy** — do not allow the destroy flow to actually destruct the resource
-**ignore_changes** — ignore any changes on specified fields or an entire object
-replace_triggered_by
-**precondition** — check some thing before performing the action on the resource
-**postcondition** — validate some thing after performing an action on the resource
+ when an in-place update has to occur Terraform will create the new instance prior to destroying the old.
+
+**prevent_destory**
+ do not allow the destroy flow to actually destruct the resource.
 
 # Create Before Destroy
 
