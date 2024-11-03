@@ -8,6 +8,6 @@ resource "aws_instance" "myec2" {
 
 resource "aws_instance" "web1" {
   ami = "ami-123"
-  instance_type = "t3.micro"
+  instance_type = "t2.micro"
 }
 
