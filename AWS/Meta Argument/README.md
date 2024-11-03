@@ -19,7 +19,8 @@ ignore any changes on specified fields or an entire object
 
 The create_before_destroy option is extremely useful in cases where the new instance of the resource must be there before destroy the old one. For example perhaps a public IP needs to be recreated but you don’t want the service to be inaccessible so you would ensure that the new address is created prior to the old one being destroyed.
 
-```bashe
+```bash
+
 resource "scratch_string" "this" {
   in = "create_before_destroy"
 
@@ -27,6 +28,7 @@ resource "scratch_string" "this" {
     create_before_destroy = true
   }
 }
+
 ```
 The above will now ensure that in the event this resource is required to be replaced in- place that it will create the new instance first.
 
@@ -36,7 +38,8 @@ prevent_destroy is another bool option which we can switch on, we would use this
 
 Let’s dive into an example to better understand this concept.
 
-```bashe
+```bash
+
 resource "azurerm_resource_group" "this" {
   name     = "rg-prod"
   location = "australiasoutheast"
