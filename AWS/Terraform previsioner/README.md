@@ -7,7 +7,9 @@ Provisioning mainly deals with configuration activities that happen after the re
 There are three types of provisioners in Terraform: 
 
 **Local-exec provisioners**
+
 **Remote-exec provisioners**
+
 **File provisioners**
 
 ## Terraform local-exec provisioner
