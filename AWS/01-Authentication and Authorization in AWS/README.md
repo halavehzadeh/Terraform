@@ -11,4 +11,4 @@ There are many ways to authenticate using the Terraform AWS provider. Configurat
 
 Before we can authenticate, we will need to create an access key for use with Terraform. To do so, browse to the IAM section in the AWS console and click on the user, and go to security crenditial tab
 
-![alt text](/home/andrew/Pictures/Screenshots/test.png)
+[alt text](/home/andrew/Pictures/Screenshots/test.png)
