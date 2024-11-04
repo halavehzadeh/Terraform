@@ -10,7 +10,7 @@ There are three types of provisioners in Terraform:
 **Remote-exec provisioners**
 **File provisioners**
 
-# Terraform local-exec provisioner
+## Terraform local-exec provisioner
 The local-exec provisioner works on the Terraform host – where Terraform configuration is applied/executed. It is used to execute any shell command. It is used to set or read environment variables, details about the resource created, invoke any process or application, etc.
 
 If we ship any shell script along with the Terraform config, or if the shell scripts are already available on the host to be invoked, local-exec provisioners are used to execute the same.
@@ -24,6 +24,38 @@ resource "aws_instance" "my_vm" {
  
  provisioner "local-exec" {
    command = "echo ${self.private_ip} >> private_ip.txt"
+ }
+ 
+ tags = {
+   Name = var.name_tag,
+ }
+}
+```
+## Terraform remote-exec provisioner
+The remote-exec provisioners are similar to local-exec provisioners – where the commands are executed on the target EC2 instance instead of Terraform host. This is accomplished by using the same connection block that is used by the file provisioned. We use a remote-exec provisioner to run a single command or multiple commands.
+The example below performs a simple task on the EC2 instance that is created by Terraform. Once the EC2 instance creation is successful, Terraform’s remote-exec provisioner logs in to the instance via SSH and executes the commands specified in the inline attribute array.
+
+```bash
+resource "aws_instance" "my_vm" {
+ ami           = var.ami //Amazon Linux AMI
+ instance_type = var.instance_type
+ 
+ key_name        = "tfsn"
+ security_groups = [aws_security_group.http_access.name]
+ 
+ provisioner "remote-exec" {
+   inline = [
+     "touch hello.txt",
+     "echo 'Have a great day!' >> hello.txt"
+   ]
+ }
+ 
+ connection {
+   type        = "ssh"
+   host        = self.public_ip
+   user        = "ec2-user"
+   private_key = file("./tfsn.cer")
+   timeout     = "4m"
  }
  
  tags = {
