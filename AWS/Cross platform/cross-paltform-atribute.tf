@@ -22,4 +22,3 @@ resource "aws_vpc_security_group_ingress_rule" "allow_tls_ipv4" {
   ip_protocol       = "tcp"
   to_port           = 80
 }
-~   
